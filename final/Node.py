@@ -1,12 +1,8 @@
-'''
-Created on Jun 9, 2014
 
-@author: nectarios
-'''
 
-BLOCKS_NUM = 3
-BITS_NUM = 5
-SUPER_BLOCK_SIZE = 3
+BLOCKS_NUM = 30
+BITS_NUM = 50
+SUPER_BLOCK_SIZE = 30
 
 class Node(object):
     '''
@@ -102,6 +98,7 @@ class Node(object):
             return -1
         rs_position = position//(BLOCKS_NUM*BITS_NUM)    #Calculate rs and rb position
         rb_position = position//BITS_NUM
+        #print(rs_position,len(self.rs))
 
         rank = self.rs[rs_position]
         #Check if the position is at the same area, if is then ignore the rb

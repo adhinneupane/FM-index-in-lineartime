@@ -10,7 +10,7 @@ def count(pattern, wavelet_tree, first_arrays, bwt_arrays):
     top = 0
     bot = len(bwt_arrays)
     i = len(pattern) - 1
-    print(first_arrays, skips)
+    #print(first_arrays, skips)
     while((i >= 0) and (bot > top)):
         c = pattern[i]
         # top = bwt.c[c]+ Bwt.rank[top]

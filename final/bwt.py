@@ -8,6 +8,7 @@ def bwt(suffix_arrays):
         
         temp = []
         for j in s:
+            #print(sequence)
             temp.append(sequence[i][j-1])
         bwt.append(temp)
     

@@ -1,8 +1,4 @@
-'''
-Created on Jun 9, 2014
 
-@author: nectarios
-'''
 
 from Node import Node
 

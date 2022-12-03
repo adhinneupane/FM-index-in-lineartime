@@ -7,7 +7,7 @@ if __name__ == '__main__':
     suffix_arrays, first_indexes = suffix_array()
     n = len(suffix_arrays)
     bwt_arrays = bwt(suffix_arrays)
-    print(first_indexes, bwt_arrays)
+    #print(first_indexes, bwt_arrays)
     wavelet_trees = []
     for i in bwt_arrays:
         wavelet_trees.append(WaveletTree(i))
