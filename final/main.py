@@ -28,8 +28,10 @@ if __name__ == '__main__':
     #print(fileData)
     # suffix_arrays, first_indexes = suffix_array()
     suffix_arrays, first_indexes = suffix_array_fast()
+    print("Suffix array generated")
     n = len(suffix_arrays)
     bwt_arrays = bwt(suffix_arrays)
+    print("BWT generated")
     #print(first_indexes, bwt_arrays)
     wavelet_trees = []
     for i in bwt_arrays:
@@ -38,7 +40,7 @@ if __name__ == '__main__':
         end_time = time.time()
         #p = input('Enter search string: ')
         restart_time = time.time()
-        print(count("LLA", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
+        print("Count is:" , count("LLA", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
         final_time = time.time()
         elapsed_time_creation = (end_time - start_time) 
         print('The creation of index took %f seconds to run.' % elapsed_time_creation)
