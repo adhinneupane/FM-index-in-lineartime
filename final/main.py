@@ -4,6 +4,16 @@ from bwt import bwt
 from WaveletTree import WaveletTree
 from FMIndex import count
 import sys
+import time
+
+start_time = time.time()
+
+
+
+
+
+
+
 
 
 def readFile(inputData):
@@ -31,5 +41,18 @@ if __name__ == '__main__':
     for i in bwt_arrays:
         wavelet_trees.append(WaveletTree(i))
     for i in range(n):
+        end_time = time.time()
         p = input('Enter search string: ')
+        restart_time = time.time()
         print(count(p, wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
+        final_time = time.time()
+        elapsed_time_creation = (end_time - start_time) 
+        print('The creation of index took %f seconds to run.' % elapsed_time_creation)
+        elapsed_time_query = final_time - restart_time
+        print('The query took %f seconds to run.' % elapsed_time_query)
+        totalTime = elapsed_time_creation+elapsed_time_query
+        print('The total program took %f seconds to run.' % totalTime)
+
+
+
+
