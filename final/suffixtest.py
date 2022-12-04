@@ -114,15 +114,15 @@ def inverse_array(l):
     return ans
 
 def writetoFile(outSuffixArray,fIA):
-    with open('outarray.pkl', 'wb') as f:
+    with open('outarray'+sys.argv[1]+'.pkl', 'wb') as f:
         pickle.dump(outSuffixArray,f)
-    with open('fia.pkl', 'wb') as f:
+    with open('fia'+sys.argv[1]+'.pkl', 'wb') as f:
         pickle.dump(fIA,f)
-        
+
 def readfromPickle():
-    with open('outarray.pkl', 'rb') as f:
+    with open('outarray'+sys.argv[1]+'.pkl', 'rb') as f:
         o = pickle.load(f)
-    with open('fia.pkl', 'rb') as f:
+    with open('fia'+sys.argv[1]+'.pkl', 'rb') as f:
         fi = pickle.load(f)
     return o,fi
     
@@ -130,10 +130,13 @@ def readfromPickle():
 
 def main():
     sequence = readFromFile(sys.argv[1])
-    outputSuffixArray =inverse_array(suffix_array_best(sequence[0]))
-    firstIndexArray = [sequence[0][i] for i in outputSuffixArray]
-    writetoFile(outputSuffixArray,firstIndexArray)
-    #readfromPickle()
+    p = input("load array from pickle?: (Y/n)")
+    if p == 'n':
+        outputSuffixArray =inverse_array(suffix_array_best(sequence[0]))
+        firstIndexArray = [sequence[0][i] for i in outputSuffixArray]
+        writetoFile(outputSuffixArray,firstIndexArray)
+    else:
+        outputSuffixArray, firstIndexArray = readfromPickle()
     #print([outputSuffixArray], [firstIndexArray])
     return [outputSuffixArray], [firstIndexArray]
 
