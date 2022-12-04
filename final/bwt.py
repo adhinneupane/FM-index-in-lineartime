@@ -31,7 +31,7 @@ def readFromFile(inputData):
         allSequences.append(sequence+"$$")
         return allSequences
     elif fasta == 0:
-        seq.append(sequence)
+        seq.append(sequence+'|')
         return seq
 
 def bwt(suffix_arrays):
