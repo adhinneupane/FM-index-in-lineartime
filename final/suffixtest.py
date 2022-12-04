@@ -1,6 +1,7 @@
 from itertools import zip_longest, islice
 import sys
 from collections import defaultdict
+import pickle
 
 
 def sort_bucket(s, bucket, order):
@@ -112,10 +113,27 @@ def inverse_array(l):
         ans[l[i]] = i
     return ans
 
+def writetoFile(outSuffixArray,fIA):
+    with open('outarray.pkl', 'wb') as f:
+        pickle.dump(outSuffixArray,f)
+    with open('fia.pkl', 'wb') as f:
+        pickle.dump(fIA,f)
+        
+def readfromPickle():
+    with open('outarray.pkl', 'rb') as f:
+        o = pickle.load(f)
+    with open('fia.pkl', 'rb') as f:
+        fi = pickle.load(f)
+    return o,fi
+    
+
+
 def main():
     sequence = readFromFile(sys.argv[1])
     outputSuffixArray =inverse_array(suffix_array_best(sequence[0]))
     firstIndexArray = [sequence[0][i] for i in outputSuffixArray]
+    writetoFile(outputSuffixArray,firstIndexArray)
+    #readfromPickle()
     #print([outputSuffixArray], [firstIndexArray])
     return [outputSuffixArray], [firstIndexArray]
 
