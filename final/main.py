@@ -43,11 +43,12 @@ if __name__ == '__main__':
         #test inputs= protein LLA
         #DNA TTTT
         #English the
-        if sys.argv[1][1] == "p":
+        print(sys.argv[1][0])
+        if sys.argv[1][0] == "p":
             print("Count is:" , count("LLA", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
-        elif sys.argv[1][1] == "d":
+        elif sys.argv[1][0] == "d":
             print("Count is:" , count("TTTT", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
-        elif sys.argv[1][1] == "e":
+        elif sys.argv[1][0] == "e":
             print("Count is:" , count("the", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
         else:
             print("Count is:" , count("A", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
