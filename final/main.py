@@ -10,12 +10,6 @@ start_time = time.time()
 
 
 
-
-
-
-
-
-
 def readFile(inputData):
     f = open(inputData, "r")
     sequence = ""
@@ -42,9 +36,9 @@ if __name__ == '__main__':
         wavelet_trees.append(WaveletTree(i))
     for i in range(n):
         end_time = time.time()
-        p = input('Enter search string: ')
+        #p = input('Enter search string: ')
         restart_time = time.time()
-        print(count(p, wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
+        print(count("LLA", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
         final_time = time.time()
         elapsed_time_creation = (end_time - start_time) 
         print('The creation of index took %f seconds to run.' % elapsed_time_creation)
