@@ -40,7 +40,19 @@ if __name__ == '__main__':
         end_time = time.time()
         #p = input('Enter search string: ')
         restart_time = time.time()
-        print("Count is:" , count("LLA", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
+        #test inputs= protein LLA
+        #DNA TTTT
+        #English the
+        if sys.argv[1][1] == "p":
+            print("Count is:" , count("LLA", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
+        elif sys.argv[1][1] == "d":
+            print("Count is:" , count("TTTT", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
+        elif sys.argv[1][1] == "e":
+            print("Count is:" , count("the", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
+        else:
+            print("Count is:" , count("A", wavelet_trees[i], first_indexes[i], bwt_arrays[i]))
+
+
         final_time = time.time()
         elapsed_time_creation = (end_time - start_time) 
         print('The creation of index took %f seconds to run.' % elapsed_time_creation)
