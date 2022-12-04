@@ -2,6 +2,7 @@
 # Suffix array
 # ---------------
 import sys
+from multiprocessing import Pool, cpu_count
 
 ##global variables
 fastaSeq = 0  # if file is in FASTA format, fastaSeq is 1, else it is 0
@@ -91,6 +92,7 @@ def getBucketItems(bucket):
 
 
 def radixSort(triplets):
+    count = 0
     beginField = triplets
     for j in range(2, -1, -1):
         bucket = sortBucket()
@@ -101,6 +103,9 @@ def radixSort(triplets):
     for i in range(len(triplets)):
         for j in range(len(beginField)):
             if beginField[j] == triplets[i]:
+                count+=1
+                if count%1000==0:
+                    print(count)
                 tIndexes.append(j)
                 break
     return triplets, tIndexes
@@ -252,8 +257,10 @@ def main():
             seq = seq.upper()  # if sequence is FASTA, all characters are uppercased
         # STEP 1
         # get triplets on 1,2-indexes and sort them
-        tripletsOneTwo = getTriplets(seq, 1)
+        tripletsOneTwo = getTriplets(seq, 1)      
         sortedOneTwo, indexOneTwo = radixSort(tripletsOneTwo)
+
+        #print("step1 done")
         # ------
         # STEP 2
         # get triplets on 0-indexes and sort them
@@ -269,6 +276,7 @@ def main():
         # ------
     # prints suffix array(s) to an output file
     # writeToFile(allArrays, sys.argv[2])
+    print(allArrays, firstIndexArrays)
     return allArrays, firstIndexArrays
 
 
