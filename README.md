@@ -32,8 +32,6 @@ Same concept as explained in this video https://youtu.be/JszVzStky1E?list=PL2mpR
 To run the wavelet tree and perform these operations use the following command
 
     python main.py <inputtextfile>
-
-in our case
   
     python main.py bwt.txt
 
